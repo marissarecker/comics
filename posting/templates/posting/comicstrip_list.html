@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}<title>Archives | Comics</title>{% endblock %}
+{% block body %}
+<h2>Archives</h2>
+<ul>
+  {% for comic in comicstrip_list %}
+  <li><a href="{{ comic.get_absolute_url }}">{{ comic.title }}</a> | {{ comic.date | date }}</li>
+  {% endfor %}
+</ul>
+{% if page_obj %}
+<nav>
+  {% if page_obj.has_previous %}
+  <a href="{% url 'comic-strip-list' %}?page={{ page_obj.previous_page_number }}">Previous</a>
+  {% endif %}
+  {% if page_obj.has_next %}
+  <a href="{% url 'comic-strip-list' %}?page={{ page_obj.next_page_number }}">Next</a>
+  {% endif %}
+</nav>
+{% endif %}
+{% endblock %}

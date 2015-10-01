@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Latest</h2>
+<h3><a href="{{ latest.get_absolute_url }}">{{ latest.title }}</a> | {{ latest.date | date }}</h3>
+{% endblock %}

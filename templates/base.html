@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    {% block title %}<title>Comics</title>{% endblock %}
+  </head>
+  <body>
+    <h1>comics, man</h1>
+    <nav>
+      <a href="{% url 'index' %}">Home</a>
+      <a href="{% url 'comic-strip-list' %}">Archives</a>
+      <a href="{% url 'about' %}">About</a>
+    </nav>
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>
