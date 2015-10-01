@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head>{% load staticfiles %}
     <meta charset="UTF-8"/>
     {% block title %}<title>Comics</title>{% endblock %}
+    <link href="{% static 'site.css' %}" rel="stylesheet"/>
   </head>
   <body>
     <h1>comics, man</h1>
