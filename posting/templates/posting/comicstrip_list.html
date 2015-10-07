@@ -3,9 +3,13 @@
 {% block body %}
 <h2>Archives</h2>
 <ul>
+  {% if comicstrip_list %}
   {% for comic in comicstrip_list %}
   <li><a href="{{ comic.get_absolute_url }}">{{ comic.title }}</a> | {{ comic.date | date }}</li>
   {% endfor %}
+  {% else %}
+  <p>Nothing here yet!</p>
+  {% endif %}
 </ul>
 {% if page_obj %}
 <nav>
