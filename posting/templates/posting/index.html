@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block body %}
 {% if latest %}
-<h2>Latest</h2>
-<h3><a href="{{ latest.get_absolute_url }}">{{ latest.title }}</a> | {{ latest.date | date }}</h3>
+<h2> Welcome to my site. I make comics and I hope you like them! </h2>
+<div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      <img alt="{{ latest.title }}" src="{{ latest.image_url }}"/>
+      <div class="caption">
+        <h10>{{ latest.title }}</h10>
+        <p>{{ latest.date | date }}</p>
+      </div>
+    </a>
+  </div>
+</div>
 {% else %}
-<h2>Nothing here yet!</h2>
+<h10>Nothing here yet!</h10>
 {% endif %}
 {% endblock %}

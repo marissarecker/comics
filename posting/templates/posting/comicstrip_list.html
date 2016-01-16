@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}<title>Archives | Comics</title>{% endblock %}
+{% block title %}<title>Comics | Archives</title>{% endblock %}
 {% block body %}
-<h2>Archives</h2>
+<h3>Archives</h3>
 <ul>
   {% if comicstrip_list %}
   {% for comic in comicstrip_list %}
-  <li><a href="{{ comic.get_absolute_url }}">{{ comic.title }}</a> | {{ comic.date | date }}</li>
+  <img src="{{ comic.image_url}}"/>
   {% endfor %}
   {% else %}
   <p>Nothing here yet!</p>

@@ -2,17 +2,31 @@
 <html lang="en">
   <head>{% load staticfiles %}
     <meta charset="UTF-8"/>
-    {% block title %}<title>Comics</title>{% endblock %}
+    {% block title %}<title>Comics | Home</title>{% endblock %}
+    <link href="https://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet"/>
     <link href="{% static 'site.css' %}" rel="stylesheet"/>
   </head>
   <body>
-    <h1>comics, man</h1>
-    <nav>
-      <a href="{% url 'index' %}">Home</a>
-      <a href="{% url 'comic-strip-list' %}">Archives</a>
-      <a href="{% url 'about' %}">About</a>
-    </nav>
+    <div class="container">
+    <h1>Comics, man</h1>
+    <ul class="nav nav-pills">
+      <li id="homeButton" role="presentation"><a href="{% url 'index' %}">Home</a>
+      <li id="archivesButton" role="presentation"><a href="{% url 'comic-strip-list' %}">Archives</a>
+      <li id="aboutButton" role="presentation"><a href="{% url 'about' %}">About</a>
+    </ul>
+    <div class="block_1"></div> <hr />
     {% block body %}
     {% endblock %}
+    </div>
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js" charset="utf-8"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // lol
+        $('.nav-pills').find('li').removeClass('active');
+        var thisPage = $('title').text().split(' | ')[1].toLowerCase();
+        if (thisPage === 'comics') thisPage = 'archives';
+        $('#' + thisPage + 'Button').addClass('active');
+    </script>
   </body>
 </html>
